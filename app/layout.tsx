@@ -1,18 +1,28 @@
-import './globals.css'
+import { Nunito } from "next/font/google";
+
+import "./globals.css";
+import Navbar from "./components/navbar/Navbar";
 
 export const metadata = {
-  title: 'New Next Rick and Morty app',
-  description: 'Developed by Okechukwu',
-}
+  title: "Airbnb Next TS App",
+  description: "Airbnb Clone || Developed by Okechukwu",
+};
+
+const font = Nunito({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={font.className}>
+        <Navbar />
+        {children}
+        </body>
     </html>
-  )
+  );
 }
